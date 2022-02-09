@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useCallback, useState } from 'react';
+//import axios from 'axios';
 import NewsList from './components/NewsList';
-
-const key = '2846ab0079c24e64a76d350b7c28bf0c';
+import Categories from './components/Categories';
+import { Outlet } from '../node_modules/react-router-dom/index';
+import CategoryLinks from './components/CalegoryLinks';
 
 function App() {
   /*  
@@ -40,7 +41,24 @@ function App() {
     </div>
   );
 */
-  return <NewsList />;
+
+  // const [category, setCategory] = useState('all');
+  // const handleSelect = useCallback((category) => {
+  //   console.log('selected category : ' + category);
+  //   setCategory(category);
+  // }, []);
+  // return (
+  //   <>
+  //     <Categories category={category} onSelect={handleSelect} />
+  //     <NewsList category={category} />
+  //   </>
+  // );
+  return (
+    <>
+      <CategoryLinks />
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
